@@ -1,4 +1,4 @@
-require_relative "../length.rb"
+require_relative "length.rb"
 require "test/unit"
 
 class LengthTest < Test::Unit::TestCase
@@ -10,9 +10,20 @@ class LengthTest < Test::Unit::TestCase
 		assert_not_nil length
 	end
 
-	def test_lenght_can_equal
+	def test_length_can_equal
 		length1 = Length.new(1)
 		length2 = Length.new(1)
+		assert_equal length1, length2
+	end
+
+	def test_length_support_unit
+		length1 = Length.new(1, "m")
+		assert_not_nil length1
+	end
+
+	def test_length_can_equal_with_unit
+		length1 = Length.new(1, "m")
+		length2 = Length.new(100, "cm")
 		assert_equal(length1, length2)
 	end
 end
