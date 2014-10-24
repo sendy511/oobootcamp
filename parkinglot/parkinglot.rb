@@ -1,0 +1,2 @@
+class Parkinglot
+end
