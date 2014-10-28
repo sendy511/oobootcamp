@@ -49,15 +49,15 @@ describe "parkinglot" do
 
 end
 
-describe "parking_service" do
+describe "parking_helper" do
 	it "should be able park car" do
-		parking_service = ParkingService.new
+		parking_service = ParkingHelper.new
 		car = Car.new
 		expect(parking_service.park(car)).to eq(true)
 	end
 
 	it "should be able to pick parked car" do
-		parking_service = ParkingService.new
+		parking_service = ParkingHelper.new
 		car = Car.new
 		parking_service.park(car)
 		expect(parking_service.pick(car.id)).to eq(car)
@@ -66,7 +66,7 @@ describe "parking_service" do
 	it "should not be able to park when all parking lots are full" do
 		parkinglot1 = Parkinglot.new(0)
 		parkinglot2 = Parkinglot.new(0)
-		parking_service = ParkingService.new([parkinglot1, parkinglot2])
+		parking_service = ParkingHelper.new([parkinglot1, parkinglot2])
 
 		car = Car.new
 

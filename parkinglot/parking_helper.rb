@@ -1,4 +1,4 @@
-class ParkingService
+class ParkingHelper
 	attr_accessor :parked_cars_with_parkinglot
 	attr_accessor :parkinglot_list
 
