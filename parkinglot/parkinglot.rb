@@ -20,7 +20,7 @@ class Parkinglot
 
 	def pick(car_id)
 		if parked_cars.member?(car_id) then
-			return parked_cars[car_id]
+			return parked_cars.delete(car_id)
 		else
 			return false
 		end
