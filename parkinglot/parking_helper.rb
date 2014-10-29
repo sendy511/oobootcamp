@@ -5,9 +5,9 @@ class ParkingHelper
 	def initialize(managed_parkinglots = [])
 		@managed_parkinglots = []
 		if managed_parkinglots.length == 0 then
-			@managed_parkinglots.push Parkinglot.new
+			@managed_parkinglots += Parkinglot.new
 		else
-			@managed_parkinglots = managed_parkinglots
+			@managed_parkinglots += managed_parkinglots
 		end
 
 		@parked_cars_with_parkinglot = {}
