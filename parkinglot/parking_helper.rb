@@ -1,5 +1,4 @@
 class ParkingHelper
-	attr_accessor :parked_cars_with_parkinglot
 	attr_accessor :managed_parkinglots
 
 	def initialize(managed_parkinglots = [])
@@ -9,15 +8,12 @@ class ParkingHelper
 		else
 			@managed_parkinglots = managed_parkinglots
 		end
-
-		@parked_cars_with_parkinglot = {}
 	end
 
 	def park(car)
 		i = 0
 		while i < @managed_parkinglots.length do
 			if not @managed_parkinglots[i].full? then
-				@parked_cars_with_parkinglot[car.id] = i;
 				return @managed_parkinglots[i].park(car)
 			end
 			i += 1
