@@ -26,6 +26,13 @@ class ParkingHelper
 	end
 
 	def pick(car_id)
-		return @managed_parkinglots[0].pick(car_id)
+		@managed_parkinglots.each do |parkinglot|
+			pick_car_result = parkinglot.pick(car_id)
+			if pick_car_result then
+				return pick_car_result
+			end
+		end
+
+		return false
 	end
 end

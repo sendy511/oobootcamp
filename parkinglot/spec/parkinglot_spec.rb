@@ -108,4 +108,17 @@ describe "parking_helper" do
 		car2 = Car.new
 		expect(parkinghelper.park(car2)).to eq(true)
 	end
+
+	it "should be able to pick correct cars when there are multiple parkinglots" do
+		parkinglot1 = Parkinglot.new(1)
+		parkinglot2 = Parkinglot.new(1)
+		parkinghelper = ParkingHelper.new([parkinglot1, parkinglot2])
+		car1 = Car.new
+		parkinghelper.park(car1)
+		car2 = Car.new
+		parkinghelper.park(car2)
+
+		expect(parkinghelper.pick(car1.id)).to eq(car1)
+		expect(parkinghelper.pick(car2.id)).to eq(car2)
+	end
 end
