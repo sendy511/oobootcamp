@@ -14,8 +14,15 @@ class ParkingHelper
 	end
 
 	def park(car)
-		@parked_cars_with_parkinglot[car.id] = 1;
-		return @managed_parkinglots[0].park(car)
+		i = 0
+		while i < @managed_parkinglots.length do
+			if not @managed_parkinglots[i].full? then
+				@parked_cars_with_parkinglot[car.id] = i;
+				return @managed_parkinglots[i].park(car)
+			end
+			i += 1
+		end
+		return false
 	end
 
 	def pick(car_id)

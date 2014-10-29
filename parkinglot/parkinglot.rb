@@ -25,4 +25,8 @@ class Parkinglot
 			return false
 		end
 	end
+
+	def full?
+		parked_cars.length >= capacity
+	end
 end

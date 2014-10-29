@@ -82,4 +82,30 @@ describe "parking_helper" do
 
 		expect(parkinghelper.pick(car.id)).to eq(car)
 	end
+
+	it "should not be able to pick a car which is never parked" do
+		parkinghelper = ParkingHelper.new
+		expect(parkinghelper.pick("GA000000")).to eq(false)
+	end
+
+	it "should not be able to pick a car again after picked" do
+		parkinghelper = ParkingHelper.new
+		car = Car.new
+		parkinghelper.park(car)
+
+		parkinghelper.pick(car.id)
+
+		expect(parkinghelper.pick(car.id)).to eq(false)
+	end
+
+	it "should still be able to park when only one is full but it manages two parking lots" do
+		parkinglot1 = Parkinglot.new(1)
+		parkinglot2 = Parkinglot.new(1)
+		parkinghelper = ParkingHelper.new([parkinglot1, parkinglot2])
+		car1 = Car.new
+		parkinghelper.park(car1)
+
+		car2 = Car.new
+		expect(parkinghelper.park(car2)).to eq(true)
+	end
 end
