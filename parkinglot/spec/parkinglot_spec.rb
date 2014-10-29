@@ -72,4 +72,14 @@ describe "parking_helper" do
 
 		expect(parking_service.park(car)).to eq(false)
 	end
+
+	it "should be able to pick a car which is not parked by him" do
+		parkinglot = Parkinglot.new
+		car = Car.new
+		parkinghelper = ParkingHelper.new([parkinglot])
+
+		parkinglot.park(car)
+
+		expect(parkinghelper.pick(car.id)).to eq(car)
+	end
 end
