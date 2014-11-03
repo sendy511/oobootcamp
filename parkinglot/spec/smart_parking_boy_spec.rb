@@ -93,4 +93,14 @@ describe "Smart Parking Boy" do
 			expect(biggerParkinglot.pick(car.id)).to eq(car)
 		end
 	end
+
+	it "should be able to park to the parking lot with more spaces" do
+		parkinglot = Parkinglot.new(2)
+		parkinglotMoreSpacesLeft = Parkinglot.new(2)
+		parkinglot.park(new Car("GA888888"))
+		smartParkingBoy = SmartParkingBoy.new([parkinglot, parkinglotMoreSpacesLeft])
+		car1 = new Car("GA000000")
+		smartParkingBoy.park(car1)
+		expect(parkinglotMoreSpacesLeft.pick(car1.id)).to eq(car1)
+	end
 end
