@@ -1,0 +1,4 @@
+class SmartParkingBoy < ParkingHelper
+
+
+end

@@ -72,7 +72,7 @@ describe "parking_helper" do
 		expect(parking_service.park(car)).to eq(false)
 	end
 
-	it "should be able to pick a car which is not parked by him" do
+	it "should be able to pick a car which is parked by car owner" do
 		parkinglot = Parkinglot.new
 		car = Car.new
 		parkinghelper = ParkingHelper.new([parkinglot])
@@ -119,5 +119,28 @@ describe "parking_helper" do
 
 		expect(parkinghelper.pick(car1.id)).to eq(car1)
 		expect(parkinghelper.pick(car2.id)).to eq(car2)
+	end
+end
+
+describe "Smart Parking Boy" do
+	describe "When there is only one parking lot" do
+		it "should park to this parking lot" do
+			parkinglot = Parkinglot.new
+			smartParkingBoy = SmartParkingBoy.new([parkinglot])
+			car = Car.new
+			smartParkingBoy.park(car)
+			expect(parkinglot.pick(car.id)).to eq(car)
+		end
+	end
+
+	describe "When there are two parking lots" do
+		it "should park to the parking lot with more spaces" do
+			parkinglot1 = Parkinglot.new(1)
+			parkinglot2 = Parkinglot.new(2)
+			SmartParkingBoy = SmartParkingBoy.new([parkinglot1, parkinglot2])
+			car = Car.new
+			smartParkingBoy.park(car)
+			(parkinglot2.pick(car.id)).to eq(car)
+		end
 	end
 end
