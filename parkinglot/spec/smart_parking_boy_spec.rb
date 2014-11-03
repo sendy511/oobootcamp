@@ -49,16 +49,16 @@ describe "Smart Parking Boy" do
 		expect(parkinghelper.pick(car.id)).to eq(false)
 	end
 
-	# it "should still be able to park when only one is full but it manages two parking lots" do
-	# 	parkinglot1 = Parkinglot.new(1)
-	# 	parkinglot2 = Parkinglot.new(1)
-	# 	parkinghelper = SmartParkingBoy.new([parkinglot1, parkinglot2])
-	# 	car1 = Car.new
-	# 	parkinghelper.park(car1)
+	it "should still be able to park when only one is full but it manages two parking lots" do
+		parkinglot1 = Parkinglot.new(1)
+		parkinglot2 = Parkinglot.new(1)
+		parkinghelper = SmartParkingBoy.new([parkinglot1, parkinglot2])
+		car1 = Car.new
+		parkinghelper.park(car1)
 
-	# 	car2 = Car.new
-	# 	expect(parkinghelper.park(car2)).to eq(true)
-	# end
+		car2 = Car.new
+		expect(parkinghelper.park(car2)).to eq(true)
+	end
 
 	it "should be able to pick correct cars when there are multiple parkinglots" do
 		parkinglot1 = Parkinglot.new(1)
