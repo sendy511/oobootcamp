@@ -26,7 +26,7 @@ class Parkinglot
 		end
 	end
 
-	def full?
-		parked_cars.length >= capacity
+	def left_spaces()
+		capacity - parked_cars.length
 	end
 end

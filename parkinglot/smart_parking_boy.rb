@@ -15,7 +15,7 @@ class SmartParkingBoy
 
 	def park(car)
 		biggestParkinglot = @managed_parkinglots.max_by do |element|
-			element.capacity
+			element.left_spaces
 		end
 		return biggestParkinglot.park(car)
 	end
