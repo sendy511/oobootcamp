@@ -22,13 +22,15 @@ class ParkingHelper
 	end
 
 	def pick(car_id)
-		@managed_parkinglots.each do |parkinglot|
-			pick_car_result = parkinglot.pick(car_id)
-			if pick_car_result then
-				return pick_car_result
-			end
+		car = nil
+		parkinglot = @managed_parkinglots.detect do |parkinglot|
+			car = parkinglot.pick(car_id)
 		end
 
-		return false
+		if parkinglot then
+			return car
+		else
+			return false
+		end
 	end
 end
