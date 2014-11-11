@@ -1,6 +1,6 @@
 require 'ruby-debug'
 
-class SmartParkingBoy
+class SuperSmartBoy
 
 	attr_accessor :managed_parkinglots
 
