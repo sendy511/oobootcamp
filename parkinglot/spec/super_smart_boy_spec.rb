@@ -106,4 +106,22 @@ describe "Super Smart Parking Boy" do
 
 		expect(parkinglot_100_spare_rate.pick(car.id)).to eq(car)
 	end
+
+	describe "when there are two parking lots with different spare-rate and left-spaces"
+	it "should park to the parkinglot with high spare-rate" do
+		parkinglot_with_high_spare_rate = Parkinglot.new(2)
+		parkinglot_with_high_spare_rate.park(Car.new("11"))
+		parkinglot_with_low_spare_rate = Parkinglot.new(5)
+		parkinglot_with_low_spare_rate.park(Car.new("21"))
+		parkinglot_with_low_spare_rate.park(Car.new("22"))
+		parkinglot_with_low_spare_rate.park(Car.new("23"))
+		super_smart_boy = SuperSmartBoy.new(parkinglot_with_high_spare_rate, parkinglot_with_low_spare_rate)
+		car = Car.new("24")
+
+		super_smart_boy.park(car)
+
+		expect(parkinglot_with_high_spare_rate.pick(car.id)).to eq(car)
+
+
+	end
 end
