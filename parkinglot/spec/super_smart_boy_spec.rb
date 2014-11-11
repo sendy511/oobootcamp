@@ -94,22 +94,16 @@ describe "Super Smart Parking Boy" do
 		end
 	end
 
-	it "should be able to park to the parking lot with more spaces" do
-		parkinglot = Parkinglot.new(2)
-		parkinglotMoreSpacesLeft = Parkinglot.new(2)
-		parkinglot.park(Car.new("GA888888"))
-		smartParkingBoy = SuperSmartBoy.new([parkinglot, parkinglotMoreSpacesLeft])
-		car1 = Car.new("GA000000")
-		smartParkingBoy.park(car1)
-		expect(parkinglotMoreSpacesLeft.pick(car1.id)).to eq(car1)
-	end
+	describe "when there are two parking lots with spare-rate as 50% and 100%"
+	it "should be able to park to 50% spare-rate parkinglot" do
+		parkinglot_50_spare_rate = Parkinglot.new(2)
+		parkinglot_50_spare_rate.park(Car.new)
+		parkinglot_100_spare_rate = Parkinglot.new(2)
+		super_smart_boy = SuperSmartBoy.new([parkinglot_50_spare_rate, parkinglot_100_spare_rate])
+		car = Car.new("GA888888")
+		
+		super_smart_boy.park(car)
 
-	it "should park to the first parking lot when parking lots have same spaces" do
-		parkinglot1 = Parkinglot.new(1)
-		parkinglot2 = Parkinglot.new(1)
-		smartParkingBoy = SuperSmartBoy.new([parkinglot1, parkinglot2])
-		car = Car.new()
-		smartParkingBoy.park(car)
-		expect(parkinglot1.pick(car.id)).to eq(car)
+		expect(parkinglot_100_spare_rate.pick(car.id)).to eq(car)
 	end
 end
