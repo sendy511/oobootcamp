@@ -33,4 +33,8 @@ class Parkinglot
 	def left_spaces
 		capacity - parked_cars.length
 	end
+
+	def spare_rate
+		capacity == 0? 100.0 : (capacity.to_f - parked_cars.length.to_f) / capacity.to_f
+	end
 end
