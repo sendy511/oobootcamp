@@ -7,9 +7,8 @@ class ParkingBoy
 	end
 
 	def park(car)
-		parkinglot = retrieve_parkinglot_for_parking
-		if parkinglot then
-		 return parkinglot.park(car)
+		if retrieve_parkinglot_for_parking then
+		 return retrieve_parkinglot_for_parking.park(car)
 		else
 		 return false
 		end
