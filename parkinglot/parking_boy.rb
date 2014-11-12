@@ -7,11 +7,7 @@ class ParkingBoy
 	end
 
 	def park(car)
-		if retrieve_parkinglot_for_parking then
-		 return retrieve_parkinglot_for_parking.park(car)
-		else
-		 return false
-		end
+		retrieve_parkinglot_for_parking ? retrieve_parkinglot_for_parking.park(car) : false
 	end
 
 	def pick(car_id)
