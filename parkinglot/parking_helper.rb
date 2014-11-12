@@ -11,9 +11,7 @@ class ParkingHelper
 	end
 
 	def park(car)
-		parkinglot = @managed_parkinglots.detect { |parkinglot|
-			not parkinglot.full?
-		}
+		parkinglot = retrieve_satified_parkinglot
 		if parkinglot then
 		 return parkinglot.park(car)
 		else
@@ -32,5 +30,12 @@ class ParkingHelper
 		else
 			return false
 		end
+	end
+
+	protected
+	def retrieve_satified_parkinglot
+		parkinglot = @managed_parkinglots.detect { |parkinglot|
+			not parkinglot.full?
+		}
 	end
 end
