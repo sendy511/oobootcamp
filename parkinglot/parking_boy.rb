@@ -2,12 +2,8 @@ class ParkingBoy
 	attr_accessor :managed_parkinglots
 
 	def initialize(managed_parkinglots = [])
-		@managed_parkinglots = []
-		if managed_parkinglots.length == 0 then
-			@managed_parkinglots.push Parkinglot.new
-		else
-			@managed_parkinglots = managed_parkinglots
-		end
+		@managed_parkinglots = 
+		managed_parkinglots.length == 0 ? [Parkinglot.new] : managed_parkinglots
 	end
 
 	def park(car)
