@@ -50,13 +50,13 @@ end
 
 describe "parking_helper" do
 	it "should be able park car" do
-		parking_service = ParkingHelper.new
+		parking_service = ParkingBoy.new
 		car = Car.new
 		expect(parking_service.park(car)).to eq(true)
 	end
 
 	it "should be able to pick parked car" do
-		parking_service = ParkingHelper.new
+		parking_service = ParkingBoy.new
 		car = Car.new
 		parking_service.park(car)
 		expect(parking_service.pick(car.id)).to eq(car)
@@ -65,7 +65,7 @@ describe "parking_helper" do
 	it "should not be able to park when all parking lots are full" do
 		parkinglot1 = Parkinglot.new(0)
 		parkinglot2 = Parkinglot.new(0)
-		parking_service = ParkingHelper.new([parkinglot1, parkinglot2])
+		parking_service = ParkingBoy.new([parkinglot1, parkinglot2])
 
 		car = Car.new
 
@@ -75,7 +75,7 @@ describe "parking_helper" do
 	it "should be able to pick a car which is parked by car owner" do
 		parkinglot = Parkinglot.new
 		car = Car.new
-		parkinghelper = ParkingHelper.new([parkinglot])
+		parkinghelper = ParkingBoy.new([parkinglot])
 
 		parkinglot.park(car)
 
@@ -83,12 +83,12 @@ describe "parking_helper" do
 	end
 
 	it "should not be able to pick a car which is never parked" do
-		parkinghelper = ParkingHelper.new
+		parkinghelper = ParkingBoy.new
 		expect(parkinghelper.pick("GA000000")).to eq(false)
 	end
 
 	it "should not be able to pick a car again after picked" do
-		parkinghelper = ParkingHelper.new
+		parkinghelper = ParkingBoy.new
 		car = Car.new
 		parkinghelper.park(car)
 
@@ -100,7 +100,7 @@ describe "parking_helper" do
 	it "should still be able to park when only one is full but it manages two parking lots" do
 		parkinglot1 = Parkinglot.new(1)
 		parkinglot2 = Parkinglot.new(1)
-		parkinghelper = ParkingHelper.new([parkinglot1, parkinglot2])
+		parkinghelper = ParkingBoy.new([parkinglot1, parkinglot2])
 		car1 = Car.new
 		parkinghelper.park(car1)
 
@@ -111,7 +111,7 @@ describe "parking_helper" do
 	it "should be able to pick correct cars when there are multiple parkinglots" do
 		parkinglot1 = Parkinglot.new(1)
 		parkinglot2 = Parkinglot.new(1)
-		parkinghelper = ParkingHelper.new([parkinglot1, parkinglot2])
+		parkinghelper = ParkingBoy.new([parkinglot1, parkinglot2])
 		car1 = Car.new
 		parkinghelper.park(car1)
 		car2 = Car.new

@@ -1,6 +1,6 @@
 require 'ruby-debug'
 
-class SmartParkingBoy < ParkingHelper
+class SmartParkingBoy < ParkingBoy
 	def park(car)
 		biggestParkinglot = @managed_parkinglots.max_by do |element|
 			element.left_spaces

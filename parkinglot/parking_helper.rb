@@ -1,4 +1,4 @@
-class ParkingHelper
+class ParkingBoy
 	attr_accessor :managed_parkinglots
 
 	def initialize(managed_parkinglots = [])

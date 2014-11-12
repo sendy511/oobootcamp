@@ -1,6 +1,6 @@
 require 'ruby-debug'
 
-class SuperSmartParkingBoy < ParkingHelper
+class SuperSmartParkingBoy < ParkingBoy
 	def park(car)
 		biggestParkinglot = (@managed_parkinglots.sort_by {
 			|parkinglot| -(parkinglot.left_spaces)
