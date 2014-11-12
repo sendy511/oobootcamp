@@ -1,5 +1,3 @@
-require 'ruby-debug'
-
 class SuperSmartParkingBoy < ParkingBoy
 	def retrieve_satified_parkinglot
 		(@managed_parkinglots.sort_by {
