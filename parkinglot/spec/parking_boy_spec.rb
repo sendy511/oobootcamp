@@ -1,6 +1,6 @@
 require_relative '../rspec_helper'
 
-describe "parking_helper" do
+describe "Parking Boy" do
 	it "should be able park car" do
 		parking_service = ParkingBoy.new
 		car = Car.new
