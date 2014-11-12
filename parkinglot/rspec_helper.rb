@@ -1,5 +1,5 @@
 require_relative "parkinglot"
 require_relative "car"
-require_relative "parking_helper"
+require_relative "parking_boy"
 require_relative "smart_parking_boy"
-require_relative "super_smart_boy"
+require_relative "super_smart_parking_boy"
