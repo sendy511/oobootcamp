@@ -11,7 +11,7 @@ class ParkingBoy
 	end
 
 	def park(car)
-		parkinglot = retrieve_satified_parkinglot
+		parkinglot = retrieve_parkinglot_for_parking
 		if parkinglot then
 		 return parkinglot.park(car)
 		else
@@ -33,7 +33,7 @@ class ParkingBoy
 	end
 
 	protected
-	def retrieve_satified_parkinglot
+	def retrieve_parkinglot_for_parking
 		parkinglot = @managed_parkinglots.detect { |parkinglot|
 			not parkinglot.full?
 		}

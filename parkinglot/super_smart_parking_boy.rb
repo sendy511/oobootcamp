@@ -1,5 +1,5 @@
 class SuperSmartParkingBoy < ParkingBoy
-	def retrieve_satified_parkinglot
+	def retrieve_parkinglot_for_parking
 		(@managed_parkinglots.sort_by {
 				|parkinglot| -(parkinglot.left_spaces)
 			}).max_by do |element|
