@@ -1,6 +1,6 @@
 require_relative '../rspec_helper'
 
-describe "Parking Boy" do
+def parking_boy_basic_validator
 	it "should be able park car" do
 		parking_service = ParkingBoy.new
 		car = Car.new
@@ -72,4 +72,8 @@ describe "Parking Boy" do
 		expect(parkinghelper.pick(car1.id)).to eq(car1)
 		expect(parkinghelper.pick(car2.id)).to eq(car2)
 	end
+end
+
+describe "Parking Boy" do
+	parking_boy_basic_validator
 end
