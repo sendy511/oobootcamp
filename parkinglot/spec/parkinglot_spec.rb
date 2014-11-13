@@ -64,6 +64,3 @@ end
 describe "parkinglot" do 
 	parking_provider_basic_validation(ParkingLotsProvider.new)
 end
-
-
-
