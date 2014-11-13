@@ -20,7 +20,7 @@ class ParkingBoy
 
 	protected
 	def retrieve_parkinglot_for_parking
-		parkinglot = @managed_parkinglots.detect { |parkinglot|
+		@managed_parkinglots.detect { |parkinglot|
 			not parkinglot.full?
 		}
 	end
