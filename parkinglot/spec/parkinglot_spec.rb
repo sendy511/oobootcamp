@@ -1,6 +1,6 @@
 require_relative '../rspec_helper'
 
-describe "parkinglot" do 
+def parking_provider_basic_validation()
 	it "should be able to park car" do
 		parkinglot = Parkinglot.new
 		car1 = Car.new
@@ -47,4 +47,9 @@ describe "parkinglot" do
 
 	end
 end
+
+describe "parkinglot" do 
+	parking_provider_basic_validation
+end
+
 
