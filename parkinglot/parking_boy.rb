@@ -12,15 +12,10 @@ class ParkingBoy
 
 	def pick(car_id)
 		car = nil
-		parkinglot = @managed_parkinglots.detect do |parkinglot|
+		@managed_parkinglots.detect do |parkinglot|
 			car = parkinglot.pick(car_id)
 		end
-
-		if parkinglot then
-			return car
-		else
-			return false
-		end
+		car ? car : false
 	end
 
 	protected
